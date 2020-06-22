@@ -3,6 +3,19 @@ Guide on how to develop xamarin apps in rider under linux.
 
 Well this is how I do it. ( Run scripts as sudo )
 
+# Update:
+I havent tested it fully yet, but I switched to a more recent Xamarin version and it now works well ( even the experimental MobileBlazorBindings ).
+
+- Grab one of the latest BuildArtifacts from [Azure](https://dev.azure.com/xamarin/public/_build?definitionId=48&_a=summary)
+( [maybeThatOne?](https://artprodcus3.artifacts.visualstudio.com/Ad0adf05a-e7d7-4b65-96fe-3f3884d42038/6fd3d886-57a5-4e31-8db7-52a1b47c07a8/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL3hhbWFyaW4vcHJvamVjdElkLzZmZDNkODg2LTU3YTUtNGUzMS04ZGI3LTUyYTFiNDdjMDdhOC9idWlsZElkLzIxMDUwL2FydGlmYWN0TmFtZS9MaW51eCtQYWNrYWdlcw2/content?format=zip) ) 
+
+- Install the *.deb inside the artifacts and install missing references.
+( you might need to remove the previously installed java from the alternatives )
+
+- Install [Java 11.0.4](https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.4%2B11/OpenJDK11U-jdk_x64_linux_hotspot_11.0.4_11.tar.gz)
+
+- Use the new Java in rider for the java binaries
+
 ## dotnet, mono, java8 and build-tools
 
 ```bash
