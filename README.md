@@ -5,6 +5,8 @@ Well this is how I do it. ( Run scripts as sudo )
 
 # Update:
 I havent tested it fully yet, but I switched to a more recent Xamarin version and it now works well ( even the experimental MobileBlazorBindings ).
+I havent done a clean install since then, so I suggest you should ( like I did ) install xamarin by the old method and update with these 4 steps afterwards
+
 
 - Grab one of the latest BuildArtifacts from [Azure](https://dev.azure.com/xamarin/public/_build?definitionId=48&_a=summary)
 ( [maybeThatOne?](https://artprodcus3.artifacts.visualstudio.com/Ad0adf05a-e7d7-4b65-96fe-3f3884d42038/6fd3d886-57a5-4e31-8db7-52a1b47c07a8/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL3hhbWFyaW4vcHJvamVjdElkLzZmZDNkODg2LTU3YTUtNGUzMS04ZGI3LTUyYTFiNDdjMDdhOC9idWlsZElkLzIxMDUwL2FydGlmYWN0TmFtZS9MaW51eCtQYWNrYWdlcw2/content?format=zip) ) 
@@ -16,6 +18,7 @@ I havent tested it fully yet, but I switched to a more recent Xamarin version an
 
 - Use the new Java in rider for the java binaries
 
+# The old thingy
 ## dotnet, mono, java8 and build-tools
 
 ```bash
@@ -89,9 +92,17 @@ Install [Rider](https://www.jetbrains.com/rider/download/#section=linux), open i
 
 ![riderSettings](pics/xamarinRider.png)
 
-### Inside the .csproj
-Append the *SupportedAbis* where needed.
+## Maybe still some issues
+### Strings.xml
+Creating a new project creates ./Resources/values/Strings.xml.  
+Rider won't recognize it unless its in lowercase.  
 
+```bash
+$ mv ./Resources/values/Strings.xml ./Resources/values/strings.xml
+```
+
+### SuppoirtedAbis
+Append the *SupportedAbis* where needed.
 
 ```xml
 <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
@@ -127,10 +138,4 @@ Append the *SupportedAbis* where needed.
     </PropertyGroup>
 ```
 
-## Maybe still some issues
-Creating a new project creates ./Resources/values/Strings.xml.  
-Rider won't recognize it unless its in lowercase.  
-
-```bash
-$ mv ./Resources/values/Strings.xml ./Resources/values/strings.xml
-```
+In My latest tests I didnt need them at all
